@@ -9,9 +9,9 @@ if [[ -z `tty|awk -F/ '{print $3}'|grep tty` ]];then
   ROOTSKIN=$ROOTPTYSKIN;
 
   if [[ $EUID == 0 ]]; then
-    mc -S $ROOTSKIN $1 $2
+    mc -S $ROOTSKIN $@
   else
-    mc -S $USERSKIN $1 $2
+    mc -S $USERSKIN $@
   fi
 
 else
@@ -20,9 +20,9 @@ else
   ROOTSKIN=$TTYSKIN;
 
   if [[ $EUID == 0 ]]; then
-    mc -S $ROOTSKIN $1 $2
+    mc -S $ROOTSKIN $@
   else
-    mc -S $USERSKIN $1 $2
+    mc -S $USERSKIN $@
   fi
 
 fi
